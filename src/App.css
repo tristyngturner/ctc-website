@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
+/* body {
+  padding: 20px 50px 0px 50px;
+  font-family: 'Overpass', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  height: 150px;
+  width: auto;
+  background-color: grey;;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.company {
+  float: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+#logo {
+  float: left;
+}
+
+li {
+  display: inline;
+  float: right;
+  padding: 8px;
+}
+
+a {
+  display: block;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+ul {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.navbar {
+  position: sticky;
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  ul.topnav li.right, 
+  ul.topnav li {float: none;}
+}
+
+.navbar {
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+} */
+/* 
+@import "../sass/utilities/initial-variables";
+@import "../sass/utilities/functions";
+@import "../sass/utilities/derived-variables.sass";
+
+
+$black: #282828;
+$grey: #dad9d9;
+$orange: #ff5e1a;
+
+
+$primary: $orange;
+$danger: $grey;
+
+@import "../bulma" */
+
+
+a {
+  float: right;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
