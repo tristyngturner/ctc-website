@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import Alert from './Alert';
 
 
 
@@ -34,22 +35,32 @@ class Quote extends Component {
         
     }
 
-    _handleSubmit = (event) => {
-        alert(`Your quote has been submitted! \n 
-        Zip Code: ${this.state.zipCode} \n 
-        Type of cabling: ${this.state.typeOfCabling} \n 
-        No. of cable drops: ${this.state.cableDrops} \n 
-        Work to be completed by: ${this.state.dateCompleted} \n
-        Type of networking needed: ${this.state.typeOfNetworking} \n
-        Type of property: ${this.state.typeOfProperty} \n
-        No. of floors: ${this.state.multiFloor}`)
+    _handleSubmit = () => {
+    alert(`Your quote has been submitted! \n 
+            Zip Code: ${this.state.zipCode} \n 
+            Type of cabling: ${this.state.typeOfCabling} \n 
+            No. of cable drops: ${this.state.cableDrops} \n 
+            Work to be completed by: ${this.state.dateCompleted} \n
+            Type of networking needed: ${this.state.typeOfNetworking} \n
+            Type of property: ${this.state.typeOfProperty} \n
+            No. of floors: ${this.state.multiFloor}`)
+    }
+
+    _hideAlert = () => {
+
+        document.getElementById('quoteForm').style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    }
+
+    componentDidUpdate (prevProps, prevState, snapshot) {
+        console.log("component did mount")
+                setTimeout(this._hideAlert(), 3000);
     }
     
     render () {
         return (
 
-            <div className="form container">
-            <h1 class="is-size-1 has-text-weight-bold">Get a Quote</h1>
+            <div className="form container" id="quoteForm">
+            <h1 className="is-size-1 has-text-weight-bold">Get a Quote</h1>
             <form>
                 <div className ="zipCode">
                     <label for="zipCode">1. Zip Code where work needs to be performed:</label><br/>
@@ -64,19 +75,19 @@ class Quote extends Component {
                     <label for="typeOfCabling0">CAT5 / CAT5E</label><br/>
                     <input type="checkbox" id="CAT6" name="typeOfCabling" value="CAT6" onChange={this._handleChangeArray}></input>
                     <label for="typeOfCabling1">CAT6</label><br/>
-                    <input type="checkbox" id="fiberOptic" name="typeOfCabling" onChange={this._handleChangeArray}></input>
+                    <input type="checkbox" id="fiberOptic" value="Fiber_Optic" name="typeOfCabling" onChange={this._handleChangeArray}></input>
                     <label for="typeOfCabling2">Fiber Optic</label><br/>
-                    <input type="checkbox" id="voice" name="typeOfCabling" ></input>
+                    <input type="checkbox" id="voice" value="Voice" name="typeOfCabling" ></input>
                     <label for="typeOfCabling3">Voice/Telephone</label><br/>
-                    <input type="checkbox" id="corpWireless" name="typeOfCabling" ></input>
+                    <input type="checkbox" id="corpWireless" value="Commercial_Wireless" name="typeOfCabling" ></input>
                     <label for="typeOfCabling4">Commercial Wireless</label><br/>
-                    <input type="checkbox" id="security" name="typeOfCabling" ></input>
+                    <input type="checkbox" id="security" value="Security" name="typeOfCabling" ></input>
                     <label for="typeOfCabling5">Security/Surveillance</label><br/>
-                    <input type="checkbox" id="notSure" name="typeOfCabling" ></input>
+                    <input type="checkbox" id="notSure" value="Not_sure" name="typeOfCabling" ></input>
                     <label for="typeOfCabling5">Not Sure</label><br/>
-                    <input type="checkbox" id="other" name="typeOfCabling" ></input>
+                    <input type="checkbox" id="other" value="Other" name="typeOfCabling" ></input>
                     <label for="typeOfCabling6">Other</label><br/>
-                    <input type="text"></input>
+                    {/* <input type="text" id="otherText"></input> */}
                 </div>
 
                     <br/>
@@ -137,6 +148,9 @@ class Quote extends Component {
 
                 <div>
                     <button onClick={this._handleSubmit}>Submit</button>
+                    
+                    
+                    
                 </div>
             </form>
             </div>
@@ -145,3 +159,9 @@ class Quote extends Component {
 }
 
 export default Quote;
+
+
+// {/* {
+//                         this.state.showAlert ? */}
+//                         <Alert showAlert={this.state.showAlert} zipCode={this.state.zipCode} onHide={this._hideAlert}/>
+//                     {/* } */}
