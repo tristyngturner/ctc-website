@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/ctc-website/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/ctc-website/static/js/main.e6a81acd.chunk.js",
+    "main.js.map": "/ctc-website/static/js/main.e6a81acd.chunk.js.map",
+    "runtime-main.js": "/ctc-website/static/js/runtime-main.5b092f11.js",
+    "runtime-main.js.map": "/ctc-website/static/js/runtime-main.5b092f11.js.map",
+    "static/js/2.0f40dd8a.chunk.js": "/ctc-website/static/js/2.0f40dd8a.chunk.js",
+    "static/js/2.0f40dd8a.chunk.js.map": "/ctc-website/static/js/2.0f40dd8a.chunk.js.map",
+    "static/js/3.76256805.chunk.js": "/ctc-website/static/js/3.76256805.chunk.js",
+    "static/js/3.76256805.chunk.js.map": "/ctc-website/static/js/3.76256805.chunk.js.map",
+    "index.html": "/ctc-website/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/ctc-website/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.0f40dd8a.chunk.js.LICENSE.txt": "/ctc-website/static/js/2.0f40dd8a.chunk.js.LICENSE.txt",
+    "static/media/ctc-only.662806b8.png": "/ctc-website/static/media/ctc-only.662806b8.png",
+    "static/media/ctc.0fcc9676.png": "/ctc-website/static/media/ctc.0fcc9676.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5b092f11.js",
+    "static/js/2.0f40dd8a.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.e6a81acd.chunk.js"
+  ]
+}
