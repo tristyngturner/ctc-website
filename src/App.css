@@ -66,10 +66,31 @@ $danger: $grey;
 
 @import "../bulma" */
 
-
-a {
-  float: right;
+.orange {
+  background-color: #ff5e1a;
 }
+
+.grey {
+  background-color: #dad9d9; 
+}
+
+.black {
+  background-color: #282828;
+}
+
+html {
+  font: white;
+}
+
+#home {
+  text-align: center;
+}
+
+#footer {
+  color: white;
+  text-align: center;
+}
+
 
 
 
