@@ -4,44 +4,46 @@ import smallLogo from '../images/ctc-only.png'
 
 class Header extends Component {
 
-    _navbarBurger = (event) => {
-        event.target.classList.add('is-active');
+    _handleBurger = (event) => {
+        const burger = document.getElementById('burger');
+        const navbar = document.getElementById('nav-links');
+
+        burger.classList.toggle('is-active');
+        
+        navbar.classList.toggle('is-active')
+        
     }
 
     render () {
         return (
         <div>
 
-            <nav className="navbar black">
+            <nav className="navbar is-fixed-top black" role="navigation">
                 <div className="navbar-brand">
-                    <a className="navbar-item">
-                        <img src={smallLogo}></img>
+                    <a className="navbar-item" href="#home">
+                        <img src={smallLogo} alt=""></img>
                     </a>
-                    <a className="navbar-item">
+                    <a className="navbar-item has-text-light" href="#home">
                         {/*make this the return home link*/}
                         Chisholm Trail Cabling
                     </a>
-                    <a className="navbar-burger" id="burger" onClick={this._navbarBurger}>
-                        <span>
-                                <a className="navbar-item" href="#about">
-                                    About Us
-                                </a>
-                        </span>
+                    <div className="navbar-burger" id="burger" onClick={this._handleBurger}>
                         <span></span>
                         <span></span>
-                    </a>
+                        <span></span>
+                    </div>
                 </div>
-                <div className="navbar-menu" id="nav-links">
+                <div className="navbar-menu black" id="nav-links">
                     <div className="navbar-end">
-                                <a className="navbar-item" href="#about">
+                                <a className="navbar-item has-text-light" href="#about">
                                     About Us
                                 </a>
 
-                                <a className="navbar-item" href="#services">
+                                <a className="navbar-item has-text-light" href="#services">
                                     What We Offer
                                 </a>
 
-                                <a className="navbar-item" href="#quote">
+                                <a className="navbar-item has-text-light" href="#quote">
                                     Get A Quote
                                 </a>
                     </div>

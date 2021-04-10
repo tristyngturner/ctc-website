@@ -1,10 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import './App.css'
 import Home from './components/Home'
 import About from './components/About';
 import Services from './components/Services';
 import Quote from './components/Quote';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -22,15 +24,19 @@ function App() {
           <Route path="/quote">
             <Quote />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <Home />
           </Route>
         </Switch>
       </div>
+
+
+      <div>
+        <Home />
+      </div>
       <div>
         <Header />
       </div>
-
       <div id="about">
         <About />
       </div>
@@ -39,6 +45,9 @@ function App() {
       </div>
       <div id="quote">
         <Quote />
+      </div>
+      <div>
+        <Footer />
       </div>
     </Router>
   );

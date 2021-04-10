@@ -59,8 +59,11 @@ class Quote extends Component {
     render () {
         return (
 
-            <div className="form container" id="quoteForm">
-            <h1 className="is-size-1 has-text-weight-bold">Get a Quote</h1>
+            <div className="hero is-full-height form pt-6 pr-3 pb-3 pl-3 mt-6" id="quoteForm">
+            <div className="hero-head">
+                <h1 className="is-size-2 has-text-weight-bold has-text-dark">Get a Quote</h1>
+            </div>
+           <div className="hero-body">
             <form>
                 <div className ="zipCode">
                     <label for="zipCode">1. Zip Code where work needs to be performed:</label><br/>
@@ -77,15 +80,15 @@ class Quote extends Component {
                     <label for="typeOfCabling1">CAT6</label><br/>
                     <input type="checkbox" id="fiberOptic" value="Fiber_Optic" name="typeOfCabling" onChange={this._handleChangeArray}></input>
                     <label for="typeOfCabling2">Fiber Optic</label><br/>
-                    <input type="checkbox" id="voice" value="Voice" name="typeOfCabling" ></input>
+                    <input type="checkbox" id="voice" value="Voice" name="typeOfCabling" onChange={this._handleChangeArray}></input>
                     <label for="typeOfCabling3">Voice/Telephone</label><br/>
-                    <input type="checkbox" id="corpWireless" value="Commercial_Wireless" name="typeOfCabling" ></input>
+                    <input type="checkbox" id="corpWireless" value="Commercial_Wireless" name="typeOfCabling" onChange={this._handleChangeArray}></input>
                     <label for="typeOfCabling4">Commercial Wireless</label><br/>
-                    <input type="checkbox" id="security" value="Security" name="typeOfCabling" ></input>
+                    <input type="checkbox" id="security" value="Security" name="typeOfCabling" onChange={this._handleChangeArray}></input>
                     <label for="typeOfCabling5">Security/Surveillance</label><br/>
-                    <input type="checkbox" id="notSure" value="Not_sure" name="typeOfCabling" ></input>
+                    <input type="checkbox" id="notSure" value="Not_sure" name="typeOfCabling" onChange={this._handleChangeArray}></input>
                     <label for="typeOfCabling5">Not Sure</label><br/>
-                    <input type="checkbox" id="other" value="Other" name="typeOfCabling" ></input>
+                    <input type="checkbox" id="other" value="Other" name="typeOfCabling" onChange={this._handleChangeArray}></input>
                     <label for="typeOfCabling6">Other</label><br/>
                     {/* <input type="text" id="otherText"></input> */}
                 </div>
@@ -152,7 +155,9 @@ class Quote extends Component {
                     
                     
                 </div>
+                
             </form>
+            </div>
             </div>
         )
     }
