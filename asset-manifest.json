@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ctc-website/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/ctc-website/static/js/main.1c301ad1.chunk.js",
-    "main.js.map": "/ctc-website/static/js/main.1c301ad1.chunk.js.map",
+    "main.js": "/ctc-website/static/js/main.52aeb2b2.chunk.js",
+    "main.js.map": "/ctc-website/static/js/main.52aeb2b2.chunk.js.map",
     "runtime-main.js": "/ctc-website/static/js/runtime-main.5b092f11.js",
     "runtime-main.js.map": "/ctc-website/static/js/runtime-main.5b092f11.js.map",
     "static/js/2.0f40dd8a.chunk.js": "/ctc-website/static/js/2.0f40dd8a.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.5b092f11.js",
     "static/js/2.0f40dd8a.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.1c301ad1.chunk.js"
+    "static/js/main.52aeb2b2.chunk.js"
   ]
 }
