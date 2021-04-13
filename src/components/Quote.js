@@ -59,14 +59,14 @@ class Quote extends Component {
     _handleSubmit = () => {
         const isValid = this._validate();
         if (isValid) {
-            // alert(`Your quote has been submitted! \n 
-            // Zip Code: ${this.state.zipCode} \n 
-            // Type of cabling: ${this.state.typeOfCabling} \n 
-            // No. of cable drops: ${this.state.cableDrops} \n 
-            // Work to be completed by: ${this.state.dateCompleted} \n
-            // Type of networking needed: ${this.state.typeOfNetworking} \n
-            // Type of property: ${this.state.typeOfProperty} \n
-            // No. of floors: ${this.state.multiFloor}`);
+            alert(`Your quote has been submitted! \n 
+            Zip Code: ${this.state.zipCode} \n 
+            Type of cabling: ${this.state.typeOfCabling} \n 
+            No. of cable drops: ${this.state.cableDrops} \n 
+            Work to be completed by: ${this.state.dateCompleted} \n
+            Type of networking needed: ${this.state.typeOfNetworking} \n
+            Type of property: ${this.state.typeOfProperty} \n
+            No. of floors: ${this.state.multiFloor}`);
         };
     };
 
