@@ -35,15 +35,15 @@ class Header extends Component {
                 </div>
                 <div className="navbar-menu black" id="nav-links">
                     <div className="navbar-end">
-                                <a className="navbar-item has-text-light" href="#about">
+                                <a className="navbar-item has-text-light" href="#about" id="navbar-about">
                                     About Us
                                 </a>
 
-                                <a className="navbar-item has-text-light" href="#services">
+                                <a className="navbar-item has-text-light" href="#services" id="navbar-services">
                                     What We Offer
                                 </a>
 
-                                <a className="navbar-item has-text-light" href="#quote">
+                                <a className="navbar-item has-text-light" href="#quote" id="navbar-quote">
                                     Get A Quote
                                 </a>
                     </div>

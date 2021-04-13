@@ -82,13 +82,32 @@ html {
   font: white;
 }
 
+#navbar-about:hover, 
+#navbar-services:hover,
+#navbar-quote {
+  background-color: #282828;
+}
+
 #home {
   text-align: center;
 }
 
+.has-image-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #footer {
   color: white;
-  text-align: center;
+  width: auto;
+}
+
+#quoteForm,
+#aboutBody,
+#servicesBody,
+#footer {
+  border-radius: 25px;
 }
 
 

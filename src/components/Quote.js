@@ -14,8 +14,15 @@ class Quote extends Component {
             typeOfNetworking: "",
             typeOfProperty: "",
             multiFloor: "",
-        };
+                zipCodeError: "",
+                typeOfCablingError: [],
+                cableDropsError: "",
+                dateCompletedError: "",
+                typeOfNetworkingError: "",
+                typeOfPropertyError: "",
+                multiFloorError: ""
     }
+}
 
     _handleChange = (event) => {
         this.setState({
@@ -35,40 +42,62 @@ class Quote extends Component {
         
     }
 
+    _validate = () => {
+        let zipCodeError = "";
+
+        if(this.state.zipCode === "") {
+            zipCodeError = 'must enter Zip Code';
+        }
+
+        if (zipCodeError) {
+            this.setState({zipCodeError})
+            return false;
+        }
+        return true;
+    };
+
     _handleSubmit = () => {
-    alert(`Your quote has been submitted! \n 
-            Zip Code: ${this.state.zipCode} \n 
-            Type of cabling: ${this.state.typeOfCabling} \n 
-            No. of cable drops: ${this.state.cableDrops} \n 
-            Work to be completed by: ${this.state.dateCompleted} \n
-            Type of networking needed: ${this.state.typeOfNetworking} \n
-            Type of property: ${this.state.typeOfProperty} \n
-            No. of floors: ${this.state.multiFloor}`)
+        const isValid = this._validate();
+        if (isValid) {
+            // alert(`Your quote has been submitted! \n 
+            // Zip Code: ${this.state.zipCode} \n 
+            // Type of cabling: ${this.state.typeOfCabling} \n 
+            // No. of cable drops: ${this.state.cableDrops} \n 
+            // Work to be completed by: ${this.state.dateCompleted} \n
+            // Type of networking needed: ${this.state.typeOfNetworking} \n
+            // Type of property: ${this.state.typeOfProperty} \n
+            // No. of floors: ${this.state.multiFloor}`);
+        };
+    };
+
+    _lifeCycle = () => {
+
+        document.getElementById('quoteForm').style.backgroundColor = '#dad9d9';
+
+        // document.getElementById('quoteForm').style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
     }
 
-    _hideAlert = () => {
-
-        document.getElementById('quoteForm').style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-    }
-
-    componentDidUpdate (prevProps, prevState, snapshot) {
-        console.log("component did mount")
-                setTimeout(this._hideAlert(), 3000);
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("component did mount");
+                setTimeout(this._lifeCycle(), 3000);
     }
     
     render () {
         return (
 
-            <div className="hero is-full-height form pt-6 pr-3 pb-3 pl-3 mt-6" id="quoteForm">
-            <div className="hero-head">
+        <div className="hero is-full-height form pt-6 pr-3 pb-3 pl-3 mt-6">
+            <div className="hero-header">
                 <h1 className="is-size-2 has-text-weight-bold has-text-dark">Get a Quote</h1>
             </div>
-           <div className="hero-body">
+            <div className="hero-body is-rounded" id="quoteForm">
             <form>
                 <div className ="zipCode">
                     <label for="zipCode">1. Zip Code where work needs to be performed:</label><br/>
                     <br/>
                     <input type="text" id="zipCode" name="zipCode" onChange={this._handleChange}></input>
+                    <div style={{fontSize: 12, color: "red"}}>
+                        {this.state.zipCodeError}
+                    </div>
                     <br/>
                 </div>
 
@@ -92,7 +121,9 @@ class Quote extends Component {
                     <label for="typeOfCabling6">Other</label><br/>
                     {/* <input type="text" id="otherText"></input> */}
                 </div>
-
+                <div style={{fontSize: 12, color: "red"}}>
+                        {this.state.typeOfCablingError}
+                    </div>
                     <br/>
 
                 <div className ="cableDrops">
@@ -104,7 +135,7 @@ class Quote extends Component {
                     <br/>
 
                 <div className ="dateCompleted">
-                    <label for="dateCompleted">4. When does work need to be complted? (Can give date or number of months):</label><br/>
+                    <label for="dateCompleted">4. When does work need to be completed? (Can give date or number of months):</label><br/>
                     <br/>
                     <input type="text" id="dateCompleted" name="dateCompleted" onChange={this._handleChange}></input>
                 </div>
@@ -155,6 +186,7 @@ class Quote extends Component {
                     
                     
                 </div>
+                <hr className="orange"/>
                 
             </form>
             </div>
@@ -168,5 +200,5 @@ export default Quote;
 
 // {/* {
 //                         this.state.showAlert ? */}
-//                         <Alert showAlert={this.state.showAlert} zipCode={this.state.zipCode} onHide={this._hideAlert}/>
+//                         <Alert showAlert={this.state.showAlert} zipCode={this.state.zipCode} onHide={this._lifeCycle}/>
 //                     {/* } */}

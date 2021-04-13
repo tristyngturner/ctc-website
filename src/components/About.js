@@ -8,7 +8,7 @@ class About extends Component {
                 <div className="hero-header">
                     <h1 className="is-size-2 has-text-weight-bold has-text-dark">About Us</h1>
                 </div>
-                <div className="hero-body">
+                <div className="hero-body grey" id="aboutBody">
                         
                         <p className="is-size-5">Our founder, Garrett Taylor, has always had a passion for tech and all that it entails. 
                         He has worked his way up in his field to become much more than a cable engineer. 
