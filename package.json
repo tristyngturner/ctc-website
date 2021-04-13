@@ -1,6 +1,6 @@
 {
   "name": "ctc-website",
-  "homepage": "https://tristyngturner.github.io/ctc-website/",
+  "homepage": "/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
