@@ -15,7 +15,7 @@ class Quote extends Component {
             typeOfProperty: "",
             multiFloor: "",
                 zipCodeError: "",
-                typeOfCablingError: [],
+                typeOfCablingError: "",
                 cableDropsError: "",
                 dateCompletedError: "",
                 typeOfNetworkingError: "",
@@ -30,11 +30,24 @@ class Quote extends Component {
         })
     }
 
+
+
+    // for (var i = 0; i < currentArray.length; i++) {
+    //     if (currentArray[i] === "CAT5") {
+    //         console.log(currentArray);
+    //     }
+    // }
     _handleChangeArray = (event) => {
 
-        const currentArray = this.state.typeOfCabling
+        const currentArray = this.state.typeOfCabling;
 
-        currentArray.push(event.target.value)
+        if(currentArray[event.target.value]) {
+            return;
+        } else {
+            currentArray.push(event.target.value)
+        }
+
+        // currentArray.push(event.target.value)
 
         this.setState({
             [event.target.name]: currentArray
@@ -43,22 +56,69 @@ class Quote extends Component {
     }
 
     _validate = () => {
-        let zipCodeError = "";
+        
+        let zipCodeError = '';
+        let typeOfCablingError = '';
+        let cableDropsError = '';
+        let dateCompletedError = '';
+        let typeOfNetworkingError = '';
+        let typeOfPropertyError = '';
+        let multiFloorError = '';
 
-        if(this.state.zipCode === "") {
+        if(!this.state.zipCode) {
             zipCodeError = 'must enter Zip Code';
         }
 
-        if (zipCodeError) {
-            this.setState({zipCodeError})
+        if (!this.state.typeOfCabling) {
+            typeOfCablingError = 'must choose type of cabling';
+        } 
+        
+        if (!this.state.cableDrops) {
+            cableDropsError = 'provide a number of cable drops, if you do not know, type "unsure"'
+        } 
+        
+        if (!this.state.dateCompleted) {
+            dateCompletedError = 'when would this work need to be completed?'
+        } 
+        
+        if (!this.state.typeOfNetworking) {
+            typeOfNetworkingError = 'choose a type of networking'
+        } 
+        
+        if (!this.state.typeOfProperty) {
+            typeOfPropertyError = 'must choose type of property'
+        } 
+        
+        if (!this.state.multiFloor) {
+            multiFloorError = 'will work be done on one or multiple floors?'
+        } 
+        
+        if (zipCodeError.length > 0 || 
+            typeOfCablingError.length > 0 || 
+            cableDropsError.length > 0 || 
+            dateCompletedError.length > 0 || 
+            typeOfNetworkingError.length > 0 || 
+            typeOfPropertyError.length > 0 ||
+            multiFloorError.length > 0) {
+            this.setState({
+                zipCodeError, 
+                typeOfCablingError, 
+                cableDropsError, 
+                dateCompletedError,
+                typeOfNetworkingError,
+                typeOfPropertyError,
+                multiFloorError
+            })
             return false;
         }
         return true;
     };
 
-    _handleSubmit = () => {
+    _handleSubmit = (e) => {
+        e.preventDefault();
         const isValid = this._validate();
         if (isValid) {
+            // console.log(this.state)
             alert(`Your quote has been submitted! \n 
             Zip Code: ${this.state.zipCode} \n 
             Type of cabling: ${this.state.typeOfCabling} \n 
@@ -67,7 +127,9 @@ class Quote extends Component {
             Type of networking needed: ${this.state.typeOfNetworking} \n
             Type of property: ${this.state.typeOfProperty} \n
             No. of floors: ${this.state.multiFloor}`);
-        };
+        } else {
+            alert('Please complete entire form')
+        }
     };
 
     _lifeCycle = () => {
@@ -121,9 +183,9 @@ class Quote extends Component {
                     <label for="typeOfCabling6">Other</label><br/>
                     {/* <input type="text" id="otherText"></input> */}
                 </div>
-                <div style={{fontSize: 12, color: "red"}}>
-                        {this.state.typeOfCablingError}
-                    </div>
+                        <div style={{fontSize: 12, color: "red"}}>
+                            {this.state.typeOfCablingError}
+                        </div>
                     <br/>
 
                 <div className ="cableDrops">
@@ -131,7 +193,9 @@ class Quote extends Component {
                     <br/>
                     <input type="text" id="cableDrops" name="cableDrops" onChange={this._handleChange}></input>
                 </div>
-
+                        <div style={{fontSize: 12, color: "red"}}>
+                            {this.state.cableDropsError}
+                        </div>
                     <br/>
 
                 <div className ="dateCompleted">
@@ -139,7 +203,9 @@ class Quote extends Component {
                     <br/>
                     <input type="text" id="dateCompleted" name="dateCompleted" onChange={this._handleChange}></input>
                 </div>
-
+                        <div style={{fontSize: 12, color: "red"}}>
+                            {this.state.dateCompletedError}
+                        </div>
                     <br/>
 
                 <div>
@@ -153,7 +219,9 @@ class Quote extends Component {
                     <input type="radio" id="unknown" name="typeOfNetworking" value="unknown" onChange={this._handleChange}></input>
                     <label for="unknown">Not Sure</label>
                 </div>
-                
+                        <div style={{fontSize: 12, color: "red"}}>
+                            {this.state.typeOfNetworkingError}
+                        </div>
                     <br/>
 
                 <div>
@@ -167,7 +235,9 @@ class Quote extends Component {
                     <input type="radio" id="outside" name="typeOfProperty" value="outside" onChange={this._handleChange}></input>
                     <label for="outside">Outside (moble office/trailers, external cabling, etc.</label>
                 </div>
-
+                        <div style={{fontSize: 12, color: "red"}}>
+                            {this.state.typeOfPropertyError}
+                        </div>
                         <br/>
                 
                 <div>
@@ -177,7 +247,9 @@ class Quote extends Component {
                     <input type="radio" id="multipleFloors" name="multiFloor" value="multipleFloors" onChange={this._handleChange}></input>
                     <label for="multipleFloors">Yes - multiple floors will need to be connected</label><br/>
                 </div>
-
+                        <div style={{fontSize: 12, color: "red"}}>
+                            {this.state.multiFloorError}
+                        </div>
                         <br/>
 
                 <div>
