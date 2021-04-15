@@ -29,31 +29,30 @@ class Quote extends Component {
             [event.target.name]: event.target.value
         })
     }
-
-
-
-    // for (var i = 0; i < currentArray.length; i++) {
-    //     if (currentArray[i] === "CAT5") {
-    //         console.log(currentArray);
-    //     }
-    // }
+            
     _handleChangeArray = (event) => {
-
+        
         const currentArray = this.state.typeOfCabling;
-
-        if(currentArray[event.target.value]) {
-            return;
-        } else {
+        
+        if (document.querySelector(`#${event.target.id}:checked`) !== null) {
             currentArray.push(event.target.value)
+        } else {
+            for (let i = 0; currentArray.length > i; i++) {
+                if(document.querySelector(`#${event.target.id}:checked`) === null && currentArray.includes(event.target.value)) {
+                    const index = currentArray.indexOf(event.target.value)
+                    if(index > -1) {
+                    currentArray.splice(index, 1)
+                }
+            }
         }
-
-        // currentArray.push(event.target.value)
+    }
+    
 
         this.setState({
             [event.target.name]: currentArray
-        })
-        
-    }
+    });
+
+}
 
     _validate = () => {
         
@@ -78,7 +77,7 @@ class Quote extends Component {
         } 
         
         if (!this.state.dateCompleted) {
-            dateCompletedError = 'when would this work need to be completed?'
+            dateCompletedError = 'when would this work need to be completed? if you do not know, type "unsure"'
         } 
         
         if (!this.state.typeOfNetworking) {
@@ -136,7 +135,6 @@ class Quote extends Component {
 
         document.getElementById('quoteForm').style.backgroundColor = '#dad9d9';
 
-        // document.getElementById('quoteForm').style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -268,9 +266,3 @@ class Quote extends Component {
 }
 
 export default Quote;
-
-
-// {/* {
-//                         this.state.showAlert ? */}
-//                         <Alert showAlert={this.state.showAlert} zipCode={this.state.zipCode} onHide={this._lifeCycle}/>
-//                     {/* } */}
